@@ -82,3 +82,39 @@ def printImPoly(curvas_arr, fondo):
     plt.show()
     # Retorna los poligonos
     return polygons
+
+def listaPlatanos():
+    platanos1 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento1-platanos.jpg'))
+    platanos2 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento2-platanos.jpg'))
+    platanos3 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento3-platanos.jpg'))
+    platanos4 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento4-platanos.jpg'))
+    return [platanos1,platanos2,platanos3,platanos4]
+def listaChiles():
+    chiles1 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento1-chiles.jpg'))
+    chiles2 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento2-chiles.jpg'))
+    chiles3 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento3-chiles.jpg'))
+    chiles4 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento4-chiles.jpg'))
+    return [chiles1,chiles2,chiles3,chiles4]
+def listaHuevos():
+    huevos1 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento1-huevos.jpg'))
+    huevos2 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento2-huevos.jpg'))
+    huevos3 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento3-huevos.jpg'))
+    huevos4 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento4-huevos.jpg'))
+    return [huevos1,huevos2,huevos3,huevos4]
+def listaFondos():
+    fondos1 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento1-fondos.jpg'))
+    fondos2 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento2-fondos.jpg'))
+    fondos3 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento3-fondos.jpg'))
+    fondos4 = np.array(io.imread('comida-entrenamiento-procesado/Entrenamiento4-fondos.jpg'))
+    return [fondos1,fondos2,fondos3,fondos4]
+
+def pixelsMatrix(clase):
+    lista_comida = globals()["lista"+clase]()
+    #lista_comida = getattr(self, "lista"+clase)()
+    pixeles_comida = []
+    for platano in lista_comida:
+        for renglon in platano:
+            for pixel in renglon:
+                if pixel.mean() > 0.:
+                    pixeles_comida.append(pixel)
+    return np.array(pixeles_comida)
