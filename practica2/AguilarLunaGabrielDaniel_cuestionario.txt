@@ -1,0 +1,7 @@
+Aguilar Luna Gabriel Daniel
+1. En que se basa el teorema que usamos:
+Se basa en un sistema Naive Bayes de probabilidad asumiendo que nuestras entradas tienen un comportamiento Gaussiano
+2. Mencione si el análisis fue local o global:
+Utilizamos un análisis local ya que se evalúa un único pixel.
+3. Cómo realizaste la selección y extracción de características:
+Utilizamos los colores de cada pixel, decidimos descarar la posición. Para este análisis basta con utilizar los colores ya que cada una de las clases varia en color.
